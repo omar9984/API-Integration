@@ -132,5 +132,5 @@ async function createTicket(userId,accessToken,projectId, ticketTypeId, layerId)
 
 // Running Server
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log("Server is running");
 });
