@@ -27,19 +27,15 @@ This Repo is deployed on Cyclic So, it could be triggered by the webhook.
 
 ## Usage
 
-**Run the Script through webhook**: Configured on the website.
-**Run the Script Manually**: Execute the script locally on machine.
-
-
-## Run Manually
+#### Run Manually
 
 1. npm init
 
 2. node main.js
 
-## Run using hooks
+#### Run using hooks
 
-just create a new project.
+Just create a new project.
 
 ## Documentaion
 
