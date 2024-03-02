@@ -15,7 +15,7 @@ This automation script is designed to integrate with PlanRadar, a SaaS applicati
 
 ## Implementation
 
-The automation script is written in JS and gets triggered when a new project is created on PlanRadar using api call. When called, it performs the following actions:
+The automation script is written in JS and gets triggered when a new project is created on PlanRadar using webhook or manually through calling the API. When called, it performs the following actions:
 
 1. **Add Sample Form**: Creates a project ticket type (form) and adds it to the newly created project.
 
@@ -23,10 +23,26 @@ The automation script is written in JS and gets triggered when a new project is 
 
 3. **Create Ticket**: Using the IDs of the newly created form and layer, creates a ticket on the project with a sample title and status.
 
+This Repo is deployed on Cyclic So, it could be triggered by the webhook.
+
 ## Usage
 
-**Run the Script**: Execute the script using the command `node main.js`.
+**Run the Script through webhook**: Configured on the website.
+**Run the Script Manually**: Execute the script using the command `node main.js`.
 
+
+## Run Manually
+
+1. npm init
+2. node main.js
+
+## Run using hooks
+
+just create a new project.
+
+## Documentaion
+
+Postman collection file for documentation.
 
 ## Dependencies
 
