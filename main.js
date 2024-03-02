@@ -14,8 +14,10 @@ app.post('/api/v1/automate', async (req, res) => {
   // Call functions to add form, layer, and ticket
   try {
     // read projectId, userId from req parameters
-    const projectId= req.body.projectId;
-    const userId = req.body.userId;
+    //const projectId= req.body.projectId;
+    const projectId= req.body.data.id;
+    //const userId = req.body.userId;
+    const userId = "1263526";
     // read accesstoken from req headers
     const accessToken = req.get('X-PlanRadar-API-Key')
     

@@ -399,3 +399,5 @@ node_modules
 
 # JetBrains Rider
 *.sln.iml
+
+{"data":{"id":"bxyjyg","type":"projects","attributes":{"id":"bxyjyg","city":null,"name":"test","status":1,"street":null,"country":null,"zipcode":null,"homepage":"","author-id":"lmlxzad","created-on":"2024-03-02T12:06:42.720Z","drend-date":null,"updated-on":"2024-03-02T12:06:43.464Z","description":null,"access-token":null,"drstart-date":"2024-03-02T12:06:42.000Z","typed-fields":[],"typed-values":{},"projectnumber":null,"running-number":3,"parent-id-hashed":"dkmqoo","schedule-start-date":null},"relationships":{"author":{"data":{"id":"lmlxzad","type":"users"}},"groups":{"data":[]},"project-memberships":{"data":[{"id":"aqjplkb","type":"project-memberships"}]},"project-working-days":{"data":null}}},"event_name":"project_created"}
