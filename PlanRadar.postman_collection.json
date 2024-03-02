@@ -27,7 +27,7 @@
 						"type": "text"
 					},
 					{
-						"key": "X-PlanRadar-API-Key",
+						"key": "x-plan-radar-api-key",
 						"value": "4c99cdfa8ad4fc9bc6cc8eb1d62b1ab4a29a95bf154a57a871d0ef03a2ca4d1692e0671f66af120db3026762c9c7d7f5ef7382b7aff25f8bda352ac5f465e1107b5020425120de1fd4a859e602d32eb7",
 						"type": "text"
 					}
@@ -72,17 +72,17 @@
 						"type": "text"
 					},
 					{
-						"key": "X-PlanRadar-API-Key",
+						"key": "x-plan-radar-api-key",
 						"value": "4c99cdfa8ad4fc9bc6cc8eb1d62b1ab4a29a95bf154a57a871d0ef03a2ca4d1692e0671f66af120db3026762c9c7d7f5ef7382b7aff25f8bda352ac5f465e1107b5020425120de1fd4a859e602d32eb7",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"data\": {\r\n    \"attributes\": {\r\n      \"name\": \"tickettypeone\",\r\n      \"capabilities\": {\r\n        \"has-media\": true,\r\n        \"has-plan-position\": true,\r\n        \"store-geolocation-data\": false,\r\n        \"has-comments\": false,\r\n        \"has-due-date-extension\": true,\r\n        \"has-recurring-reminders\": false\r\n      },\r\n      \"typed-fields\": {\r\n        \"field_key\": {\r\n          \"name\": \"fieldname\",\r\n          \"type\": \"CustomFields::IntegerType\",\r\n          \"order\": 0,\r\n          \"visible-to\": [\r\n            \"string\"\r\n          ],\r\n          \"editable-by\": [\r\n            \"string\"\r\n          ]\r\n        }\r\n      }\r\n      \r\n    }\r\n  }\r\n}"
+					"raw": "{\r\n  \"data\": {\r\n    \"attributes\": {\r\n      \"name\": \"myTicket\"\r\n    }\r\n  }\r\n}"
 				},
 				"url": {
-					"raw": "https://www.planradar.com/api/v1/1263526/ticket_types",
+					"raw": "https://www.planradar.com/api/v1/dkmqoo/ticket_types",
 					"protocol": "https",
 					"host": [
 						"www",
@@ -92,7 +92,7 @@
 					"path": [
 						"api",
 						"v1",
-						"1263526",
+						"dkmqoo",
 						"ticket_types"
 					]
 				}
@@ -111,7 +111,7 @@
 						"type": "text"
 					},
 					{
-						"key": "X-PlanRadar-API-Key",
+						"key": "x-plan-radar-api-key",
 						"value": "4c99cdfa8ad4fc9bc6cc8eb1d62b1ab4a29a95bf154a57a871d0ef03a2ca4d1692e0671f66af120db3026762c9c7d7f5ef7382b7aff25f8bda352ac5f465e1107b5020425120de1fd4a859e602d32eb7",
 						"type": "text"
 					}
@@ -167,7 +167,7 @@
 						"type": "text"
 					},
 					{
-						"key": "X-PlanRadar-API-Key",
+						"key": "x-plan-radar-api-key",
 						"value": "4c99cdfa8ad4fc9bc6cc8eb1d62b1ab4a29a95bf154a57a871d0ef03a2ca4d1692e0671f66af120db3026762c9c7d7f5ef7382b7aff25f8bda352ac5f465e1107b5020425120de1fd4a859e602d32eb7",
 						"type": "text"
 					}
@@ -207,14 +207,14 @@
 						"type": "text"
 					},
 					{
-						"key": "X-PlanRadar-API-Key",
+						"key": "x-plan-radar-api-key",
 						"value": "4c99cdfa8ad4fc9bc6cc8eb1d62b1ab4a29a95bf154a57a871d0ef03a2ca4d1692e0671f66af120db3026762c9c7d7f5ef7382b7aff25f8bda352ac5f465e1107b5020425120de1fd4a859e602d32eb7",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\r\n    \"data\":{\r\n        \"id\":\"1263527\",\r\n        \"attributes\":{\r\n            \"parent-id-hashed\":\"1263526\"\r\n        }\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -222,7 +222,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/v1/1263526/projects/1263527/automate",
+					"raw": "http://localhost:3000/api/v1/automate",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -231,9 +231,6 @@
 					"path": [
 						"api",
 						"v1",
-						"1263526",
-						"projects",
-						"1263527",
 						"automate"
 					]
 				}
