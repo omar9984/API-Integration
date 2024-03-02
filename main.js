@@ -22,7 +22,8 @@ app.post('/api/v1/automate', async (req, res) => {
     // read accesstoken from req headers
     //const accessToken = req.get('X-PlanRadar-API-Key')
     console.log("heeee",req.headers)
-    const accessToken = req.get('x_plan_radar_api_key')
+    console.log("heeee",req.headers["x-plan-radar-api-key"])
+    const accessToken = req.get('x-plan-radar-api-key')
     console.log("hiiii",accessToken)
     
     // First Step: Create Ticket-Type
