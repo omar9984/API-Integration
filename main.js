@@ -16,9 +16,11 @@ app.post('/api/v1/automate', async (req, res) => {
     // read projectId, userId from req parameters
     //const projectId= req.body.projectId;
     const projectId = req.body.data.id;
-    console.log("hoooo",projectId)
+    console.log("hoooo",projectId);
+    console.log("hohoho",req.body.data.attributes);
     //const userId = req.body.userId;
-    const userId = "1263526";
+    const userId = req.body.data.attributes["parent-id-hashed"];
+    console.log("heeee",userId);
     // read accesstoken from req headers
     //const accessToken = req.get('X-PlanRadar-API-Key')
     const accessToken = req.get('x-plan-radar-api-key')
