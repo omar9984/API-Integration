@@ -15,28 +15,27 @@ app.post('/api/v1/automate', async (req, res) => {
   try {
     // read projectId, userId from req parameters
     //const projectId= req.body.projectId;
-    const projectId = req.body.data.id || req.body.data.data.id;
+    const projectId = req.body.data.data.id;
     console.log("hoooo",projectId)
     //const userId = req.body.userId;
     const userId = "1263526";
     // read accesstoken from req headers
     //const accessToken = req.get('X-PlanRadar-API-Key')
-    console.log("heeee",req.headers)
-    console.log("heeee",req.headers["x-plan-radar-api-key"])
     const accessToken = req.get('x-plan-radar-api-key')
-    console.log("hiiii",accessToken)
     
     // First Step: Create Ticket-Type
     const ticketTypeId = await createTicketType(userId,accessToken)
-
+    console.log("ticketTypeId: ",ticketTypeId)
     // Second Step: Assign created Ticket-Type to the recently created Project
     await assignProjectTicketType(userId,accessToken,projectId,ticketTypeId)
-
+    
     // Third Step: Create Component Form or Layer
     const layerId = await createLayer(userId,accessToken,projectId);
+    console.log("layerId: ",layerId)
     
     // Fourth Step: Create Ticket
-    await createTicket(userId,accessToken,projectId, ticketTypeId, layerId);
+    const ticketId = await createTicket(userId,accessToken,projectId, ticketTypeId, layerId);
+    console.log("ticketId: ",ticketId)
     
     // Respond to the webhook with a success message
     res.status(200).send('Automation script executed successfully.');
@@ -124,7 +123,7 @@ async function createTicket(userId,accessToken,projectId, ticketTypeId, layerId)
     }
   };
 
-  await axios.post(
+  const response = await axios.post(
     `https://www.planradar.com/api/v2/${userId}/projects/${projectId}/tickets`,
     bodyData,
     {
@@ -134,6 +133,7 @@ async function createTicket(userId,accessToken,projectId, ticketTypeId, layerId)
       }
     }
   );
+  return response.data.data.id;
 }
 
 // Running Server
