@@ -15,13 +15,15 @@ app.post('/api/v1/automate', async (req, res) => {
   try {
     // read projectId, userId from req parameters
     //const projectId= req.body.projectId;
-    console.log("hiiii",req.body)
     const projectId = req.body.data.id || req.body.data.data.id;
     console.log("hoooo",projectId)
     //const userId = req.body.userId;
     const userId = "1263526";
     // read accesstoken from req headers
-    const accessToken = req.get('X-PlanRadar-API-Key')
+    //const accessToken = req.get('X-PlanRadar-API-Key')
+    console.log("heeee",req.headers)
+    const accessToken = req.get('x_plan_radar_api_key')
+    console.log("hiiii",accessToken)
     
     // First Step: Create Ticket-Type
     const ticketTypeId = await createTicketType(userId,accessToken)
