@@ -13,31 +13,24 @@ app.use(express.json())
 app.post('/api/v1/automate', async (req, res) => {
   // Call functions to add form, layer, and ticket
   try {
-    // read projectId, userId from req parameters
-    //const projectId= req.body.projectId;
+    // read projectId from req body
     const projectId = req.body.data.id;
-    console.log("hoooo",projectId);
-    console.log("hohoho",req.body.data.attributes);
-    //const userId = req.body.userId;
+    // read userId from req body
     const userId = req.body.data.attributes["parent-id-hashed"];
-    console.log("heeee",userId);
+
     // read accesstoken from req headers
-    //const accessToken = req.get('X-PlanRadar-API-Key')
     const accessToken = req.get('x-plan-radar-api-key')
     
     // First Step: Create Ticket-Type
     const ticketTypeId = await createTicketType(userId,accessToken)
-    console.log("ticketTypeId: ",ticketTypeId)
     // Second Step: Assign created Ticket-Type to the recently created Project
     await assignProjectTicketType(userId,accessToken,projectId,ticketTypeId)
     
     // Third Step: Create Component Form or Layer
     const layerId = await createLayer(userId,accessToken,projectId);
-    console.log("layerId: ",layerId)
     
     // Fourth Step: Create Ticket
-    const ticketId = await createTicket(userId,accessToken,projectId, ticketTypeId, layerId);
-    console.log("ticketId: ",ticketId)
+    await createTicket(userId,accessToken,projectId, ticketTypeId, layerId);
     
     // Respond to the webhook with a success message
     res.status(200).send('Automation script executed successfully.');
@@ -125,7 +118,7 @@ async function createTicket(userId,accessToken,projectId, ticketTypeId, layerId)
     }
   };
 
-  const response = await axios.post(
+  await axios.post(
     `https://www.planradar.com/api/v2/${userId}/projects/${projectId}/tickets`,
     bodyData,
     {
@@ -135,7 +128,6 @@ async function createTicket(userId,accessToken,projectId, ticketTypeId, layerId)
       }
     }
   );
-  return response.data.data.id;
 }
 
 // Running Server
