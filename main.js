@@ -10,12 +10,12 @@ app.use(express.json())
 
 
 // Endpoint to handle incoming webhook requests
-app.post('/api/v1/:userId/projects/:projectId/automate', async (req, res) => {
+app.post('/api/v1/automate', async (req, res) => {
   // Call functions to add form, layer, and ticket
   try {
     // read projectId, userId from req parameters
-    const projectId= req.params.projectId;
-    const userId = req.params.userId;
+    const projectId= req.body.projectId;
+    const userId = req.body.userId;
     // read accesstoken from req headers
     const accessToken = req.get('X-PlanRadar-API-Key')
     
